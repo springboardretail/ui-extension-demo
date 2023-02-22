@@ -74,6 +74,9 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_EXTENSION_BASE_URL: "https://${{ github.repository_owner}}.github.io/ui-extension-demo/"
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact

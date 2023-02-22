@@ -43,7 +43,7 @@ export default function PosExtension() {
 
   // Opens a new tab or window with the external page
   const openPageInNewTabOrWindow = () => {
-    const url = extensionUrlWithParams("extensions/pos/external_page");
+    const url = extensionUrlWithParams("extensions/pos/external_page", query);
     console.log("Opening new tab or window", url);
     const win = window.open(url, "_blank");
     setExternalWindow(win);
@@ -62,7 +62,7 @@ export default function PosExtension() {
 
   // Redirects the POS to a new page
   const redirectToPage = () => {
-    const url = extensionUrlWithParams("extensions/pos/external_page");
+    const url = extensionUrlWithParams("extensions/pos/external_page", query);
     console.log("Redirecting to page", url);
     sendMessage("redirect", { url });
   };
